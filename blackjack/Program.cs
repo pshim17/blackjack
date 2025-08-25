@@ -13,11 +13,11 @@ class Program
             Player player = new Player();
             Hand hand = new Hand();
 
-            Card firstCard = player.DrawCard(deck);
+            Card firstCard = player.DrawCardFromDeck(deck);
             Console.WriteLine($"You drew: {firstCard.Rank} of {firstCard.Suit}");
             hand.AddtoHand(firstCard);
 
-            Card secondCard = player.DrawCard(deck);
+            Card secondCard = player.DrawCardFromDeck(deck);
             Console.WriteLine($"You drew: {secondCard.Rank} of {secondCard.Suit}");
             hand.AddtoHand(secondCard);
 
