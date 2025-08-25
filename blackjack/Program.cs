@@ -7,6 +7,8 @@ class Program
 
         while (true)
         {
+            Deck deck = new Deck();
+
             Console.WriteLine("Play again? (y/n)");
             string userInput = Console.ReadLine().ToLower();
 
