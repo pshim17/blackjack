@@ -1,4 +1,6 @@
-﻿namespace blackjack;
+﻿using System.Reflection;
+
+namespace blackjack;
 class Program
 {
     static void Main(string[] args)
@@ -8,6 +10,7 @@ class Program
         while (true)
         {
             Deck deck = new Deck();
+            //deck.DrawCard();
 
             Console.WriteLine("Play again? (y/n)");
             string userInput = Console.ReadLine().ToLower();

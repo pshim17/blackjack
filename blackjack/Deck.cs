@@ -39,8 +39,9 @@ namespace blackjack
                     cards.Add(new Card(suit, rank, value));
                 }
             }
+            Shuffle();
         }
-        public void shuffle()
+        public void Shuffle()
         {
             //Fisher-Yates shuffling algorithm
             Random random = new Random();
@@ -52,6 +53,13 @@ namespace blackjack
                 cards[i] = cards[j];
                 cards[j] = temp;
             }
+        }
+
+        public Card DrawCard()
+        {
+            Card card = cards[0];
+            cards.Remove(card);
+            return card;
         }
     }
 }
