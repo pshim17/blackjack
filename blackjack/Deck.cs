@@ -40,5 +40,18 @@ namespace blackjack
                 }
             }
         }
+        public void shuffle()
+        {
+            //Fisher-Yates shuffling algorithm
+            Random random = new Random();
+
+            for (int i = 0; i < cards.Count; i++)
+            {
+                int j = random.Next(i, cards.Count);
+                Card temp = cards[i];
+                cards[i] = cards[j];
+                cards[j] = temp;
+            }
+        }
     }
 }
