@@ -16,13 +16,13 @@ class Program
             Card firstCardPlayer = player.DrawCardFromDeck(deck);
             Console.WriteLine($"You drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
 
-            Card firstCardDealer = player.DrawCardFromDeck(deck);
+            Card firstCardDealer = dealer.DrawCardFromDeck(deck);
             Console.WriteLine($"dealer drew: {firstCardDealer.Rank} of {firstCardDealer.Suit}");
 
             Card secondCardPlayer = player.DrawCardFromDeck(deck);
             Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}");
 
-            Card secondCardDealer = player.DrawCardFromDeck(deck);
+            Card secondCardDealer = dealer.DrawCardFromDeck(deck);
             Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}");
 
             Console.WriteLine("Player’s hand now has:");
@@ -56,6 +56,10 @@ class Program
             } else if (userInput == "y")
             {
                 continue;
+            } else
+            {
+                Console.WriteLine("Invalid Entry!");
+                break;
             }
         }
         Console.WriteLine("Good bye!");

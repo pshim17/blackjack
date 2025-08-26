@@ -9,7 +9,6 @@ namespace blackjack
     internal class Hand
     {
         private List<Card> cards;
-        int total;
 
         public Hand()
         {
@@ -28,6 +27,8 @@ namespace blackjack
 
         public int TotalCardValue()
         {
+            int total = 0;
+
             for (int i = 0; i < cards.Count; i++)
             {
                 total += cards[i].Value;
