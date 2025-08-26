@@ -30,16 +30,22 @@ namespace blackjack
 
         public bool HitOrStand()
         {
-            while(true)
+            Console.WriteLine("Press 'h' to hit or 's' to stand: ");
+
+            while (true)
             {
-                Console.WriteLine("Press 'h' to hit or 's' to stand: ");
                 string userInput = Console.ReadLine().ToLower();
 
                 if (userInput == "h")
                 {
                     Card playerCard = player.DrawCardFromDeck(deck);
 
-                    Console.WriteLine($"\nyou drew: {playerCard.Rank} of {playerCard.Suit}");                    
+                    Console.WriteLine($"\nyou drew: {playerCard.Rank} of {playerCard.Suit}");        
+                    
+                    if (player.hand.TotalCardValue() > 21)
+                    {
+                        Console.WriteLine("Bust! Game Over!");
+                    }
                 }
                 else if (userInput == "s")
                 {
