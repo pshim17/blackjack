@@ -51,10 +51,9 @@ namespace blackjack
                 }
                 else if (userInput == "s")
                 {
-                    string dealerHiddenCardRank = dealer.hand.cards[0].Rank;
-                    string dealerHiddenCardSuit = dealer.hand.cards[0].Suit;
+                    Card dealerHiddenCard = dealer.hand.GetDealerHiddenCard();
 
-                    Console.WriteLine($"\nDealer's hidden card was: {dealerHiddenCardRank} of {dealerHiddenCardSuit}");
+                    Console.WriteLine($"\nDealer's hidden card was: {dealerHiddenCard.Rank} of {dealerHiddenCard.Suit}");
 
                     while (dealer.hand.TotalCardValue() < 17)
                     {

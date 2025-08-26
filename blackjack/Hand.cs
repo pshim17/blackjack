@@ -8,7 +8,7 @@ namespace blackjack
 {
     internal class Hand
     {
-        public List<Card> cards;
+        private List<Card> cards;
 
         public Hand()
         {
@@ -34,6 +34,11 @@ namespace blackjack
                 total += cards[i].Value;
             }
             return total;
+        }
+
+        public Card GetDealerHiddenCard()
+        {
+            return cards[0];
         }
     }
 }
