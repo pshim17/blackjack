@@ -12,7 +12,7 @@ class Program
         while (true)
         {
             Game game = new Game();
-            game.start();
+            game.Start();
 
             while(true)
             {

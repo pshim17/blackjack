@@ -15,7 +15,7 @@ namespace blackjack
             cards = new List<Card>();
         }
 
-        public void AddtoHand(Card card)
+        public void AddToHand(Card card)
         {
             cards.Add(card);
         }

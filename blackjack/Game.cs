@@ -12,7 +12,7 @@ namespace blackjack
         Player player = new Player();
         Dealer dealer = new Dealer();
 
-        public void start()
+        public void Start()
         {
             Card firstCardPlayer = player.DrawCardFromDeck(deck);
             Card secondCardPlayer = player.DrawCardFromDeck(deck);
