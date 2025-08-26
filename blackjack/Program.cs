@@ -6,7 +6,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to Blackjack!");
-        Console.WriteLine("Press any key to play");
+        Console.WriteLine("Press any key to play\n");
         Console.ReadKey(true);
 
         while (true)

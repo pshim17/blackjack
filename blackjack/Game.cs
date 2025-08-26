@@ -8,30 +8,39 @@ namespace blackjack
 {
     internal class Game
     {
+        Deck deck = new Deck();
+        Player player = new Player();
+        Dealer dealer = new Dealer();
+
         public void start()
         {
-            Deck deck = new Deck();
-            Player player = new Player();
-            Dealer dealer = new Dealer();
-
             Card firstCardPlayer = player.DrawCardFromDeck(deck);
-            Console.WriteLine($"You drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
+            Card secondCardPlayer = player.DrawCardFromDeck(deck);
 
             Card firstCardDealer = dealer.DrawCardFromDeck(deck);
-            Console.WriteLine($"dealer drew: ?? of ??");
-
-            Card secondCardPlayer = player.DrawCardFromDeck(deck);
-            Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}");
-
             Card secondCardDealer = dealer.DrawCardFromDeck(deck);
-            Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}");
 
+            Console.WriteLine($"You drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
+            Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}\n");
+            Console.WriteLine($"dealer drew: ?? of ??");
+            Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}\n");
 
-            //int totalPlayer = player.hand.TotalCardValue();
-            //int totalDealer = dealer.hand.TotalCardValue();
+            HitOrStand();
+        }
 
-            //Console.WriteLine($"player total: {totalPlayer}");
-            //Console.WriteLine($"dealer total: {totalDealer}");
+        public void HitOrStand()
+        {
+            while(true)
+            {
+                Console.WriteLine("Press 'h' to hit or 's' to stay: ");
+                string userInput = Console.ReadLine().ToLower();
+
+                if (userInput == "h")
+                {
+                    player.DrawCardFromDeck(deck);
+                    break;
+                }
+            }
         }
     }
 }
