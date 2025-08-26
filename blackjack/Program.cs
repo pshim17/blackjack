@@ -6,7 +6,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to Blackjack!");
-        Console.WriteLine("Press any key to play\n");
+        Console.WriteLine("Press any key to play");
         Console.ReadKey(true);
 
         while (true)
@@ -16,13 +16,13 @@ class Program
 
             while(true)
             {
-                Console.WriteLine("Play again? (y/n)");
+                Console.WriteLine("\nPlay again? (y/n)");
                 
                 string userInput = Console.ReadLine().ToLower();
 
                 if (userInput == "n")
                 {
-                    Console.WriteLine("Good bye!");
+                    Console.WriteLine("\nGood bye!");
                     return;
                 }
                 else if (userInput == "y")
@@ -31,7 +31,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine("Invalid Entry!");
+                    Console.WriteLine("\nInvalid Entry!");
                 }
             }
         }

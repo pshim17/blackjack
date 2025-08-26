@@ -20,7 +20,7 @@ namespace blackjack
             Card firstCardDealer = dealer.DrawCardFromDeck(deck);
             Card secondCardDealer = dealer.DrawCardFromDeck(deck);
 
-            Console.WriteLine($"You drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
+            Console.WriteLine($"\nYou drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
             Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}\n");
             Console.WriteLine($"dealer drew: ?? of ??");
             Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}\n");
@@ -28,29 +28,26 @@ namespace blackjack
             HitOrStand();
         }
 
-        public void HitOrStand()
+        public bool HitOrStand()
         {
             while(true)
             {
                 Console.WriteLine("Press 'h' to hit or 's' to stand: ");
                 string userInput = Console.ReadLine().ToLower();
 
-                while(true)
+                if (userInput == "h")
                 {
-                    if (userInput == "h")
-                    {
-                        dealer.DrawCardFromDeck(deck);
-                        break;
-                    }
-                    else if (userInput == "s")
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nInvalid Entry!");
-                        break;
-                    }
+                    Card playerCard = player.DrawCardFromDeck(deck);
+
+                    Console.WriteLine($"\nyou drew: {playerCard.Rank} of {playerCard.Suit}");                    
+                }
+                else if (userInput == "s")
+                {
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid Entry");
                 }
             }
         }
