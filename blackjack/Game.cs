@@ -14,6 +14,7 @@ namespace blackjack
 
         public void start()
         {
+
             Card firstCardPlayer = player.DrawCardFromDeck(deck);
             Card secondCardPlayer = player.DrawCardFromDeck(deck);
 
@@ -30,10 +31,10 @@ namespace blackjack
 
         public bool HitOrStand()
         {
-            Console.WriteLine("Press 'h' to hit or 's' to stand: ");
-
             while (true)
             {
+                Console.WriteLine("Press 'h' to hit or 's' to stand: ");
+
                 string userInput = Console.ReadLine().ToLower();
 
                 if (userInput == "h")
@@ -45,11 +46,23 @@ namespace blackjack
                     if (player.hand.TotalCardValue() > 21)
                     {
                         Console.WriteLine("Bust! Game Over!");
+                        return false;
                     }
                 }
                 else if (userInput == "s")
                 {
-                    return true;
+                    string dealerHiddenCardRank = dealer.hand.cards[0].Rank;
+                    string dealerHiddenCardSuit = dealer.hand.cards[0].Suit;
+
+                    Console.WriteLine($"\nDealer's hidden card was: {dealerHiddenCardRank} of {dealerHiddenCardSuit}");
+
+                    while (dealer.hand.TotalCardValue() < 17)
+                    {
+                        Card dealerCard = dealer.DrawCardFromDeck(deck);
+                        Console.WriteLine($"\ndealer drew: {dealerCard.Rank} of {dealerCard.Suit}");
+                    }
+
+                    Console.WriteLine($"\ndealer final total: {dealer.hand.TotalCardValue()}");
                 }
                 else
                 {

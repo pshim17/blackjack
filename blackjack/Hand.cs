@@ -8,7 +8,7 @@ namespace blackjack
 {
     internal class Hand
     {
-        private List<Card> cards;
+        public List<Card> cards;
 
         public Hand()
         {
