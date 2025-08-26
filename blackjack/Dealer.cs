@@ -14,5 +14,11 @@ namespace blackjack
         {
             hand = new Hand();
         }
+        public Card DrawCardFromDeck(Deck deck)
+        {
+            Card drawnCard = deck.DrawCard();
+            hand.AddtoHand(drawnCard);
+            return drawnCard;
+        }
     }
 }
