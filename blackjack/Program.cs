@@ -9,44 +9,8 @@ class Program
 
         while (true)
         {
-            Deck deck = new Deck();
-            Player player = new Player();
-            Dealer dealer = new Dealer();
-
-            Card firstCardPlayer = player.DrawCardFromDeck(deck);
-            Console.WriteLine($"You drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
-
-            Card firstCardDealer = dealer.DrawCardFromDeck(deck);
-            Console.WriteLine($"dealer drew: {firstCardDealer.Rank} of {firstCardDealer.Suit}");
-
-            Card secondCardPlayer = player.DrawCardFromDeck(deck);
-            Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}");
-
-            Card secondCardDealer = dealer.DrawCardFromDeck(deck);
-            Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}");
-
-            Console.WriteLine("Player’s hand now has:");
-
-            foreach (Card card in player.hand.DisplayCards())
-            {
-                Console.WriteLine($" - {card.Rank} of {card.Suit}" +
-                    $"(value {card.Value})");
-            }
-
-            Console.WriteLine("Dealer’s hand now has:");
-
-            foreach (Card card in dealer.hand.DisplayCards())
-            {
-                Console.WriteLine($" - {card.Rank} of {card.Suit}" +
-                    $"(value {card.Value})");
-            }
-
-            int totalPlayer = player.hand.TotalCardValue();
-            int totalDealer = dealer.hand.TotalCardValue();
-
-            Console.WriteLine($"player total: {totalPlayer}");
-            Console.WriteLine($"dealer total: {totalDealer}");
-
+            Game game = new Game();
+            game.start();
             Console.WriteLine("Play again? (y/n)");
             string userInput = Console.ReadLine().ToLower();
 
@@ -59,7 +23,7 @@ class Program
             } else
             {
                 Console.WriteLine("Invalid Entry!");
-                break;
+                continue;
             }
         }
         Console.WriteLine("Good bye!");
