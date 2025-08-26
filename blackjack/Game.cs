@@ -82,7 +82,16 @@ namespace blackjack
             }
             else if (dealerTotal > 21)
             {
+                Console.WriteLine("Dealer Bust! You Win!");
+            } else if (playerTotal > dealerTotal)
+            {
                 Console.WriteLine("You Win!");
+            } else if (playerTotal < dealerTotal)
+            {
+                Console.WriteLine("Dealer Wins!");
+            } else if (playerTotal == dealerTotal)
+            {
+                Console.WriteLine("Push! It's a Tie!");
             }
         }
     }
