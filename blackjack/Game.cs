@@ -32,13 +32,25 @@ namespace blackjack
         {
             while(true)
             {
-                Console.WriteLine("Press 'h' to hit or 's' to stay: ");
+                Console.WriteLine("Press 'h' to hit or 's' to stand: ");
                 string userInput = Console.ReadLine().ToLower();
 
-                if (userInput == "h")
+                while(true)
                 {
-                    player.DrawCardFromDeck(deck);
-                    break;
+                    if (userInput == "h")
+                    {
+                        dealer.DrawCardFromDeck(deck);
+                        break;
+                    }
+                    else if (userInput == "s")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nInvalid Entry!");
+                        break;
+                    }
                 }
             }
         }
