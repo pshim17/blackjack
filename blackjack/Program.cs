@@ -6,26 +6,34 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to Blackjack!");
+        Console.WriteLine("Press any key to play");
+        Console.ReadKey(true);
 
         while (true)
         {
             Game game = new Game();
             game.start();
-            Console.WriteLine("Play again? (y/n)");
-            string userInput = Console.ReadLine().ToLower();
 
-            if (userInput == "n")
+            while(true)
             {
-                break;
-            } else if (userInput == "y")
-            {
-                continue;
-            } else
-            {
-                Console.WriteLine("Invalid Entry!");
-                continue;
+                Console.WriteLine("Play again? (y/n)");
+                
+                string userInput = Console.ReadLine().ToLower();
+
+                if (userInput == "n")
+                {
+                    Console.WriteLine("Good bye!");
+                    return;
+                }
+                else if (userInput == "y")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Entry!");
+                }
             }
         }
-        Console.WriteLine("Good bye!");
     }
 }
