@@ -41,6 +41,7 @@ namespace blackjack
             }
             Shuffle();
         }
+
         public void Shuffle()
         {
             //Fisher-Yates shuffling algorithm
