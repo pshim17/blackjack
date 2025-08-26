@@ -41,7 +41,8 @@ namespace blackjack
                 {
                     Card playerCard = player.DrawCardFromDeck(deck);
 
-                    Console.WriteLine($"\nyou drew: {playerCard.Rank} of {playerCard.Suit}");        
+                    Console.WriteLine($"\nyou drew: {playerCard.Rank} of {playerCard.Suit}");
+                    Console.WriteLine($"Your current total is: {player.hand.TotalCardValue()}\n");
                     
                     if (player.hand.TotalCardValue() > 21)
                     {
