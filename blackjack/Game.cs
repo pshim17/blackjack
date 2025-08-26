@@ -29,7 +29,7 @@ namespace blackjack
             Outcome();
         }
 
-        public bool HitOrStand()
+        public void HitOrStand()
         {
             while (true)
             {
@@ -46,7 +46,7 @@ namespace blackjack
                     
                     if (player.hand.TotalCardValue() > 21)
                     {
-                        return false;
+                        return;
                     }
                 }
                 else if (userInput == "s")
@@ -63,7 +63,7 @@ namespace blackjack
                     }
 
                     Console.WriteLine($"\ndealer final total: {dealer.hand.TotalCardValue()}");
-                    return false;
+                    return;
                 }
                 else
                 {
