@@ -14,7 +14,6 @@ namespace blackjack
 
         public void start()
         {
-
             Card firstCardPlayer = player.DrawCardFromDeck(deck);
             Card secondCardPlayer = player.DrawCardFromDeck(deck);
 
@@ -27,6 +26,7 @@ namespace blackjack
             Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}\n");
 
             HitOrStand();
+            Outcome();
         }
 
         public bool HitOrStand()
@@ -46,7 +46,6 @@ namespace blackjack
                     
                     if (player.hand.TotalCardValue() > 21)
                     {
-                        Console.WriteLine("Bust! Game Over!");
                         return false;
                     }
                 }
@@ -64,11 +63,20 @@ namespace blackjack
                     }
 
                     Console.WriteLine($"\ndealer final total: {dealer.hand.TotalCardValue()}");
+                    return false;
                 }
                 else
                 {
                     Console.WriteLine("\nInvalid Entry");
                 }
+            }
+        }
+
+        public void Outcome()
+        {
+            if (player.hand.TotalCardValue() > 21)
+            {
+                Console.WriteLine("Bust! Dealer Wins!");
             }
         }
     }
