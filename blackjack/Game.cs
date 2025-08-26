@@ -73,9 +73,16 @@ namespace blackjack
 
         public void Outcome()
         {
-            if (player.hand.TotalCardValue() > 21)
+            int playerTotal = player.hand.TotalCardValue();
+            int dealerTotal = dealer.hand.TotalCardValue();
+
+            if (playerTotal > 21)
             {
                 Console.WriteLine("Bust! Dealer Wins!");
+            }
+            else if (dealerTotal > 21)
+            {
+                Console.WriteLine("You Win!");
             }
         }
     }
