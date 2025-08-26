@@ -15,19 +15,15 @@ class Program
 
             Card firstCardPlayer = player.DrawCardFromDeck(deck);
             Console.WriteLine($"You drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
-            player.hand.AddtoHand(firstCardPlayer);
 
             Card firstCardDealer = player.DrawCardFromDeck(deck);
             Console.WriteLine($"dealer drew: {firstCardDealer.Rank} of {firstCardDealer.Suit}");
-            dealer.hand.AddtoHand(firstCardDealer);
 
             Card secondCardPlayer = player.DrawCardFromDeck(deck);
             Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}");
-            player.hand.AddtoHand(secondCardPlayer);
 
             Card secondCardDealer = player.DrawCardFromDeck(deck);
             Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}");
-            dealer.hand.AddtoHand(secondCardDealer);
 
             Console.WriteLine("Player’s hand now has:");
 
