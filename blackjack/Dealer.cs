@@ -8,17 +8,17 @@ namespace blackjack
 {
     internal class Dealer
     {
-        public Hand hand { get; }
+        public Hand Hand { get; }
 
         public Dealer()
         {
-            hand = new Hand();
+            Hand = new Hand();
         }
 
         public Card DrawCardFromDeck(Deck deck)
         {
             Card drawnCard = deck.DrawCard();
-            hand.AddToHand(drawnCard);
+            Hand.AddToHand(drawnCard);
             return drawnCard;
         }
     }

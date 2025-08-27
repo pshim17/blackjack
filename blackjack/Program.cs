@@ -17,7 +17,6 @@ class Program
             while(true)
             {
                 Console.WriteLine("\nPlay again? (y/n)");
-                
                 string userInput = Console.ReadLine().ToLower();
 
                 if (userInput == "n")
