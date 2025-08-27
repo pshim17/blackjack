@@ -21,9 +21,12 @@ namespace blackjack
             Card secondCardDealer = dealer.DrawCardFromDeck(deck);
 
             Console.WriteLine($"\nYou drew: {firstCardPlayer.Rank} of {firstCardPlayer.Suit}");
-            Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}\n");
+            Console.WriteLine($"You drew: {secondCardPlayer.Rank} of {secondCardPlayer.Suit}");
+            Console.WriteLine($"Your current total is: {player.hand.TotalCardValue()}\n");
+
             Console.WriteLine($"dealer drew: ?? of ??");
-            Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}\n");
+            Console.WriteLine($"dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}");
+            Console.WriteLine($"Dealer's total is: ??\n");
 
             HitOrStand();
             Outcome();
@@ -53,12 +56,12 @@ namespace blackjack
                 {
                     Card dealerHiddenCard = dealer.hand.GetDealerHiddenCard();
 
-                    Console.WriteLine($"\nDealer's hidden card was: {dealerHiddenCard.Rank} of {dealerHiddenCard.Suit}");
+                    Console.WriteLine($"\nDealer's hidden card was: {dealerHiddenCard.Rank} of {dealerHiddenCard.Suit}\n");
 
                     while (dealer.hand.TotalCardValue() < 17)
                     {
                         Card dealerCard = dealer.DrawCardFromDeck(deck);
-                        Console.WriteLine($"\ndealer drew: {dealerCard.Rank} of {dealerCard.Suit}");
+                        Console.WriteLine($"dealer drew: {dealerCard.Rank} of {dealerCard.Suit}");
                     }
 
                     Console.WriteLine($"\ndealer final total: {dealer.hand.TotalCardValue()}");
@@ -78,21 +81,53 @@ namespace blackjack
 
             if (playerTotal > 21)
             {
+                RoundSummary();
                 Console.WriteLine("Bust! Dealer Wins!");
             }
             else if (dealerTotal > 21)
             {
+                RoundSummary();
                 Console.WriteLine("Dealer Bust! You Win!");
             } else if (playerTotal > dealerTotal)
             {
+                RoundSummary();
                 Console.WriteLine("You Win!");
             } else if (playerTotal < dealerTotal)
             {
+                RoundSummary();
                 Console.WriteLine("Dealer Wins!");
             } else if (playerTotal == dealerTotal)
             {
+                RoundSummary();
                 Console.WriteLine("Push! It's a Tie!");
             }
+        }
+
+        public void RoundSummary()
+        {
+            Console.WriteLine("Round Summary: ");
+            Console.WriteLine("You: ");
+
+            int playerTotal = player.hand.TotalCardValue();
+
+            for (int i = 0; i < player.hand.DisplayCards().Count; i++)
+            {
+                string cardRank = player.hand.DisplayCards()[i].Rank;
+                string cardSuit = player.hand.DisplayCards()[i].Suit;
+                Console.WriteLine($"  - {cardRank} of {cardSuit}");
+            }
+            Console.WriteLine($"Total: {playerTotal}\n");
+
+            int dealerTotal = dealer.hand.TotalCardValue();
+
+            Console.WriteLine("Dealer: ");
+            for (int i = 0; i < dealer.hand.DisplayCards().Count; i++)
+            {
+                string cardRank = dealer.hand.DisplayCards()[i].Rank;
+                string cardSuit = dealer.hand.DisplayCards()[i].Suit;
+                Console.WriteLine($"  - {cardRank} of {cardSuit}");
+            }
+            Console.WriteLine($"Total: {dealerTotal}");
         }
     }
 }
