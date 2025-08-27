@@ -28,9 +28,30 @@ namespace blackjack
 
             Console.WriteLine($"Dealer drew: ?? of ??");
             Console.WriteLine($"Dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}");
-            Console.WriteLine($"Dealer's visible card total: {secondCardDealer.Value}\n");
+            Console.WriteLine($"Dealer's visible card total: {secondCardDealer.Value}");
 
-            Outcome();
+            int playerTotal = player.Hand.TotalCardValue();
+            int dealerTotal = dealer.Hand.TotalCardValue();
+
+            if (playerTotal == 21 && dealerTotal == 21)
+            {
+                RoundSummary();
+                Console.WriteLine("***Push! It's a Tie!***");
+                return;
+            }
+            else if (playerTotal == 21)
+            {
+                RoundSummary();
+                Console.WriteLine("***Blackjack! You Win!***");
+                return;
+            }
+            else if (dealerTotal == 21)
+            {
+                RoundSummary();
+                Console.WriteLine("***Blackjack! Dealer Wins!***");
+                return;
+            }
+
             HitOrStand();
             Outcome();
         }
@@ -39,6 +60,7 @@ namespace blackjack
         {
             while (true)
             {
+                Console.WriteLine("----------------------------------------------------------------------------------");
                 Console.WriteLine("Press 'h' to hit or 's' to stand: ");
 
                 string userInput = Console.ReadLine().ToLower();
@@ -95,6 +117,7 @@ namespace blackjack
 
         public void RoundSummary()
         {
+            Console.WriteLine("----------------------------------------------------------------------------------");
             Console.WriteLine("Game Summary: ");
             Console.WriteLine("You: ");
 
@@ -124,8 +147,8 @@ namespace blackjack
         {
             Card playerCard = player.DrawCardFromDeck(deck);
 
-            Console.WriteLine($"\nYou drew: {playerCard.Rank} of {playerCard.Suit}");
-            Console.WriteLine($"Your current total is: {player.Hand.TotalCardValue()}\n");
+            Console.WriteLine($"\nYou drew: {playerCard.Rank} of {playerCard.Suit}\n");
+            Console.WriteLine($"Your current total is: {player.Hand.TotalCardValue()}");
         }
 
         public void Stand()
@@ -133,6 +156,7 @@ namespace blackjack
             Card dealerHiddenCard = dealer.Hand.GetDealerHiddenCard();
 
             Console.WriteLine($"\nDealer's hidden card was: {dealerHiddenCard.Rank} of {dealerHiddenCard.Suit}\n");
+            Console.WriteLine($"Dealer's current total: {dealer.Hand.TotalCardValue()}\n");
 
             while (dealer.Hand.TotalCardValue() < 17)
             {
@@ -140,7 +164,7 @@ namespace blackjack
                 Console.WriteLine($"Dealer drew: {dealerCard.Rank} of {dealerCard.Suit}");
             }
 
-            Console.WriteLine($"Dealer final total: {dealer.Hand.TotalCardValue()}\n");
+            Console.WriteLine($"Dealer final total: {dealer.Hand.TotalCardValue()}");
         }
     }
 }
