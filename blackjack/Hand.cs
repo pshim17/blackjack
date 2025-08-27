@@ -28,10 +28,28 @@ namespace blackjack
         public int TotalCardValue()
         {
             int total = 0;
+            int aceCount = 0;
 
             for (int i = 0; i < cards.Count; i++)
             {
-                total += cards[i].Value;
+                if (cards[i].Rank == "A")
+                {
+                    aceCount++;
+                } else
+                {
+                    total += cards[i].Value;
+                }
+            }
+            
+            for (int i =0; i < aceCount; i++)
+            {
+                if (total + 11 <= 21)
+                {
+                    total += 11;
+                } else
+                {
+                    total += 1;
+                }
             }
             return total;
         }

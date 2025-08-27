@@ -15,7 +15,8 @@ namespace blackjack
             cards = new List<Card>();
 
             string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
-            string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+            //string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+            string[] ranks = { "2", "3", "A" };
 
             foreach (string suit in suits)
             {
@@ -35,7 +36,6 @@ namespace blackjack
                     {
                         value = int.Parse(rank);
                     }
-
                     cards.Add(new Card(suit, rank, value));
                 }
             }
