@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace blackjack
+﻿namespace blackjack
 {
     internal class Hand
     {
@@ -32,12 +26,14 @@ namespace blackjack
 
             for (int i = 0; i < cards.Count; i++)
             {
-                if (cards[i].Rank == "A")
+                Card card = cards[i];
+
+                if (card.Rank == "A")
                 {
                     aceCount++;
                 } else
                 {
-                    total += cards[i].Value;
+                    total += card.Value;
                 }
             }
             

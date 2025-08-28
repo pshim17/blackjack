@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace blackjack
+﻿namespace blackjack
 {
     internal class Game
     {
@@ -158,7 +151,7 @@ namespace blackjack
             Console.WriteLine($"\nDealer's hidden card was: {dealerHiddenCard.Rank} of {dealerHiddenCard.Suit}\n");
             Console.WriteLine($"Dealer's current total: {dealer.Hand.TotalCardValue()}\n");
 
-            while (dealer.Hand.TotalCardValue() < 17)
+            // Dealer keeps hitting when total is 16 or less, and stops at 17 or more. A soft 17 also stops.
             {
                 Card dealerCard = dealer.DrawCardFromDeck(deck);
                 Console.WriteLine($"Dealer drew: {dealerCard.Rank} of {dealerCard.Suit}");
