@@ -20,7 +20,7 @@ Welcome to Blackjack, a minimum viable product (MVP) C# console app implementing
 2. **Terminal**
 
 ## How to Run
-From the project folder:
+From the project folder: (e.g....\blackjack-main\blackjack))
 ```sh
 dotnet run
 ```
