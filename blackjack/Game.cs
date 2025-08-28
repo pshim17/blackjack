@@ -21,7 +21,7 @@
 
             Console.WriteLine($"Dealer drew: ?? of ??");
             Console.WriteLine($"Dealer drew: {secondCardDealer.Rank} of {secondCardDealer.Suit}");
-            Console.WriteLine($"Dealer's visible card total: {secondCardDealer.Value}");
+            Console.WriteLine($"Dealer total shows: {secondCardDealer.Value}");
 
             int playerTotal = player.Hand.TotalCardValue();
             int dealerTotal = dealer.Hand.TotalCardValue();
@@ -158,7 +158,7 @@
                 Console.WriteLine($"Dealer drew: {dealerCard.Rank} of {dealerCard.Suit}");
             }
 
-            Console.WriteLine($"Dealer final total: {dealer.Hand.TotalCardValue()}");
+            Console.WriteLine($"\nDealer final total: {dealer.Hand.TotalCardValue()}");
         }
     }
 }
