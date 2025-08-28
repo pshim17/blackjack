@@ -152,6 +152,7 @@
             Console.WriteLine($"Dealer's current total: {dealer.Hand.TotalCardValue()}\n");
 
             // Dealer keeps hitting when total is 16 or less, and stops at 17 or more. A soft 17 also stops.
+            while (dealer.Hand.TotalCardValue() < 17)
             {
                 Card dealerCard = dealer.DrawCardFromDeck(deck);
                 Console.WriteLine($"Dealer drew: {dealerCard.Rank} of {dealerCard.Suit}");
